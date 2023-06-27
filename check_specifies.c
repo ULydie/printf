@@ -10,8 +10,8 @@ int (*check_specifies(const char *formart))(va_list)
 {
 	int i;
 
-        func_t my_arrey[4]={
-		{"c",print_char},{"s",print_string},{"%",print_cent}, {NULL,NULL}
+        func_t my_arrey[6]={
+		{"c",print_char},{"s",print_string},{"%",print_cent},{"d",print_integer},{"i",print_dec}, {NULL,NULL}
 	};
 
 	for(i=0;my_arrey[i].spe!=NULL; i++)

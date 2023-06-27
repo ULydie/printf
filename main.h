@@ -1,33 +1,34 @@
-#ifndef MAIN_H
-#define MAIN_H
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <limits.h>
+#ifndef MAIN_H_INCLUDED
+#define MAIN_H_INCLUDED
 #include <unistd.h>
+#include <stdarg.h>
+#include <stdio.h>
 
+/**struct that will contain specifies and corresponding format function*/
 
-
-/**
- * struct format - match the conversion specifiers for printf
- * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
- * @f: type pointer to function for the conversion specifier
- *
- */
-
-typedef struct format
+typedef struct func
 {
-	char *id;
-	int (*f)();
-} print_op;
+    char *spe;            /*specifier*/
+
+    int(*f)(va_list);    /*format function (*f)*/
+} func_t;               /*func_t repesent struct func*/
+
+int (*f)(va_list);
+
+int print_char(va_list);
 
 int _printf(const char *format, ...);
-int _putchar(char c);
-int print_integer(va_list args);
-int print_dec(va_list args);
-int print_char(va_list args);
-int print_percent(va_list args);
-int print_string(va_list args);
 
-#endif
+int (*check_specifies(const char *formart))(va_list);
+
+int print_string(va_list);
+
+int print_cent(va_list);
+
+int print_integer(va_list);
+
+int print_dec(va_list);
+
+int _putchar(char c);
+
+#endif // MAIN_H_INCLUDED
