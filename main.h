@@ -21,6 +21,8 @@ typedef struct format
 	char *id;
 	int (*f)();
 } print_op;
+
+int _printf(const char *format, ...);
 int _putchar(char c);
 int print_integer(va_list args);
 int print_dec(va_list args);

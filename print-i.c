@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_dec - print decimal 
+ * print_dec - print decimal
  * @args:..
  *
  * Return:..
@@ -29,21 +29,17 @@ int print_dec(va_list args)
 	}
 	if (nbr > 0)
 	{
-		do
-		{
+		do {
 			expon = expon * 10;
 			nbr = nbr / 10;
-		}
-		while (nbr / 10 != 0);
-		do
-		{
+		} while (nbr / 10 != 0);
+		do {
 			dgt = nbr / expon;
 			_putchar(dgt + '0');
 			nbr = nbr - (dgt * expon);
 			expon = expon / 10;
 			j++;
-		}
-		while (expon > 0);
+		} while (expon > 0);
 	}
 	_putchar(lst + '0');
 	return (j);
