@@ -37,8 +37,8 @@ int print_dec(va_list args)
 
 
 /**
- * print_number - function to  print a number
- * @i: integer to print
+ * print_integer - function to  print a number
+ * @args: integer to print
  * Return: int
  */
 

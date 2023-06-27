@@ -2,15 +2,15 @@
 #include <stdarg.h>
 
 /**
- * get_func - check for valid specifier
+ * get_printfop - check for valid specifier
  * @format:..
  *
  * Return:..
  */
-int (*get_func(const char *format))(va_list)
+int (*get_printfop(const char *format))(va_list)
 {
 	int j;
-	func_t p[] = {
+	func_t x[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
@@ -19,11 +19,11 @@ int (*get_func(const char *format))(va_list)
 		{NULL, NULL}
 	};
 
-	for (j = 0; p[j].id; j++)
+	for (j = 0; x[j].id; j++)
 	{
-		if (*format == *(p[j].id))
+		if (*format == *(x[j].id))
 		{
-			return (p[j].f);
+			return (x[j].f);
 		}
 	}
 	return (NULL);
@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					f = get_func(&format[i + 1]);
+					f = get_printfop(&format[i + 1]);
 					j += f(args);
 					i++;
 				}
