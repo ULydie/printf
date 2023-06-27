@@ -20,8 +20,9 @@ typedef struct format
 {
 	char *id;
 	int (*f)();
-} print_op;
+} func_t;
 
+int (*get_func(const char *format))(va_list);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_integer(va_list args);

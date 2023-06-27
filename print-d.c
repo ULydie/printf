@@ -6,39 +6,28 @@
  *
  * Return:..
  */
-
+/*
 int print_integer(va_list args)
 {
 	int nb = va_arg(args, int);
-	int nbr, lst = nb % 10, dgt, expon = 1, j = 1;
-
-	nb = nb / 10;
-	nbr = nb;
-
-	if (lst < 0)
+	int digit, expon = 1;
+	if (nb < 0)
 	{
 		_putchar('-');
-		nbr = -nbr;
-		nb = -nb;
-		lst = -lst;
-		j++;
+		nb = nb * -1;
 	}
-	if (nbr > 0)
+	while (nb != 0)
 	{
-		do {
-			expon = expon * 10;
-			nbr = nbr / 10;
-		} while (nbr / 10 != 0);
-		nbr = nb;
-		do {
-			dgt = nbr / expon;
-			_putchar(dgt + '0');
-			nbr = nbr - (dgt * expon);
-			expon = expon / 10;
-			j++;
-		} while (expon > 0);
+		digit = nb % 10;
+		expon = expon * 10 + digit;
+		nb = nb / 10;
+	}	
+	while (expon > 0)
+	{
+		digit = expon % 10;
+		_putchar(digit + '0');
+		expon = expon / 10;
 	}
-	_putchar(lst + '0');
 
-	return (j);
-}
+	return (nb);
+}*/

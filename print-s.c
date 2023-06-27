@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * print_string - print strings.
@@ -15,7 +16,7 @@ int print_string(va_list val)
 	str = va_arg(val, char *);
 	if (str != NULL)
 	{
-		leng = _strlen(str);
+		leng = strlen(str);
 		for (j = 0; j < leng; j++)
 			_putchar(str[j]);
 		return (leng);
@@ -23,7 +24,7 @@ int print_string(va_list val)
 	else
 	{
 		str = "(null)";
-		leng = _strlen(str);
+		leng = strlen(str);
 		for (j = 0; j < leng; j++)
 			_putchar(str[j]);
 		return (leng);
